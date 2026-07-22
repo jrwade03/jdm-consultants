@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — JDM Consultants LLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:        #0E0E0E;
+  --charcoal:     #1E1E1E;
+  --mid:          #4A4A4A;
+  --muted:        #888;
+  --border:       #E0E0E0;
+  --bg:           #F9F8F6;
+  --white:        #FFFFFF;
+  --orange:       #C4540A;
+  --orange-light: #E8620C;
+  --cream:        #F4F1EC;
+  --navy:         #0A0F1E;
+  --slate:        #8A95A8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+}
+
+/* ── ANNOUNCEMENT BAR ── */
+.announcement-bar {
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+  padding: 10px 24px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.announcement-bar span { color: var(--orange); }
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  height: 68px;
+}
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  text-decoration: none;
+}
+
+.nav-logo-top {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+  line-height: 1;
+}
+
+.nav-logo-sub {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--orange);
+  line-height: 1;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: var(--black); }
+
+.nav-links a.active {
+  border-bottom: 2px solid var(--orange);
+  padding-bottom: 2px;
+}
+
+.nav-cta {
+  background: var(--black) !important;
+  color: var(--white) !important;
+  padding: 10px 24px !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--charcoal) !important; }
+
+/* ── PAGE HERO ── */
+.page-hero {
+  background: var(--navy);
+  padding: 80px 60px 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(244,101,10,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244,101,10,0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+.page-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+}
+
+.page-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.page-eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--orange);
+  display: block;
+}
+
+.page-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(44px, 5.5vw, 72px);
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+.page-hero h1 em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.page-hero p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--slate);
+  line-height: 1.75;
+  max-width: 560px;
+}
+
+/* Orange bottom border on hero */
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--orange);
+}
+
+/* ── STATS ROW ── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+}
+
+.stat-item {
+  padding: 24px 36px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.stat-item:last-child { border-right: none; }
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--orange);
+}
+
+.stat-label {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── FILTER BAR ── */
+.filter-section {
+  padding: 40px 60px 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+  position: sticky;
+  top: 68px;
+  z-index: 90;
+}
+
+.filter-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filter-tabs::-webkit-scrollbar { display: none; }
+
+.filter-tab {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 14px 28px;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.filter-tab:hover { color: var(--black); }
+
+.filter-tab.active {
+  color: var(--black);
+  border-bottom-color: var(--orange);
+}
+
+/* ── PROJECT COUNT ── */
+.projects-meta {
+  padding: 24px 60px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.projects-count {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.projects-count span {
+  font-weight: 600;
+  color: var(--black);
+}
+
+.view-toggles {
+  display: flex;
+  gap: 8px;
+}
+
+.view-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: all 0.2s;
+}
+
+.view-btn.active,
+.view-btn:hover {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+}
+
+/* ── PROJECTS GRID ── */
+.projects-section {
+  padding: 32px 60px 80px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  transition: all 0.3s;
+}
+
+.projects-grid.view-2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.projects-grid.view-list {
+  grid-template-columns: 1fr;
+  gap: 1px;
+}
+
+/* ── PROJECT CARD ── */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+  cursor: pointer;
+  aspect-ratio: 4/3;
+  display: block;
+}
+
+.project-card.large {
+  aspect-ratio: 16/9;
+  grid-column: span 2;
+}
+
+.project-card.tall {
+  aspect-ratio: 3/4;
+}
+
+.projects-grid.view-list .project-card,
+.projects-grid.view-list .project-card.large,
+.projects-grid.view-list .project-card.tall {
+  aspect-ratio: 21/6;
+  grid-column: span 1;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease, filter 0.4s ease;
+  filter: grayscale(15%) brightness(0.9);
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.06);
+  filter: grayscale(0%) brightness(0.8);
+}
+
+/* Card overlay */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10,15,30,0.96) 0%,
+    rgba(10,15,30,0.4) 40%,
+    rgba(10,15,30,0.0) 70%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.project-card:hover .project-overlay { opacity: 1; }
+
+/* Always show tag in top-left */
+.project-tag-always {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: var(--orange);
+  color: var(--white);
+  padding: 4px 10px;
+  z-index: 2;
+}
+
+.project-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 6px;
+}
+
+.project-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.project-location {
+  font-family: 'Barlow', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.project-expand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s 0.1s, transform 0.3s 0.1s;
+}
+
+.project-card:hover .project-expand {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hidden cards for filtering */
+.project-card.hidden {
+  display: none;
+}
+
+/* No results */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 20px;
+  display: none;
+}
+
+.no-results.show { display: block; }
+
+.no-results p {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* ── LIGHTBOX ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(10,15,30,0.97);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox-inner {
+  width: 90vw;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 0;
+  max-height: 88vh;
+}
+
+.lightbox-img-wrap {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.lightbox-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  max-height: 88vh;
+}
+
+.lightbox-info {
+  background: var(--white);
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+}
+
+.lightbox-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
+
+.lightbox-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.1;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+
+.lightbox-location {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--muted);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lightbox-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--orange);
+  margin-bottom: 24px;
+}
+
+.lightbox-desc {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+.lightbox-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 32px;
+}
+
+.lightbox-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.lightbox-detail-label {
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.lightbox-detail-value {
+  font-weight: 400;
+  color: var(--black);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 10;
+}
+
+.lightbox-close:hover { background: var(--orange); border-color: var(--orange); }
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.lightbox-nav:hover { background: var(--orange); border-color: var(--orange); }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+
+/* ── CTA SECTION ── */
+.cta-section {
+  background: var(--navy);
+  padding: 80px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(244,101,10,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244,101,10,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.cta-content { position: relative; z-index: 1; }
+
+.cta-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cta-eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--orange);
+}
+
+.cta-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 44px;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.cta-section p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--slate);
+  line-height: 1.7;
+}
+
+.btn-primary {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--orange);
+  color: var(--white);
+  padding: 16px 36px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--orange-light);
+  transform: translateY(-2px);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--black);
+  color: var(--white);
+  padding: 52px 60px 32px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 28px;
+}
+
+.footer-brand-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.footer-brand-sub {
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 14px;
+}
+
+.footer-desc {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.75;
+}
+
+.footer-col-title {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 18px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--white); }
+
+.footer-contact-val {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-copy {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.28);
+}
+
+.minority-badge {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  border: 1px solid rgba(196,84,10,0.3);
+  padding: 5px 14px;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .project-card.large { grid-column: span 2; }
+  .lightbox-inner { grid-template-columns: 1fr; max-height: 95vh; }
+  .lightbox-info { padding: 28px; }
+  .lightbox-img-wrap { max-height: 50vh; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .page-hero { padding: 52px 20px 48px; }
+  .filter-section { padding: 28px 20px 0; }
+  .projects-meta { padding: 16px 20px 0; }
+  .projects-section { padding: 24px 20px 60px; }
+  .projects-grid { grid-template-columns: 1fr; gap: 3px; }
+  .project-card.large { grid-column: span 1; aspect-ratio: 4/3; }
+  .project-overlay { opacity: 1; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .cta-section { flex-direction: column; padding: 52px 20px; gap: 28px; }
+  footer { padding: 40px 20px 24px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .lightbox-inner { grid-template-columns: 1fr; width: 96vw; }
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar">
+  <span>100% Minority-Owned</span> &nbsp;·&nbsp; Civil Engineering & Design &nbsp;·&nbsp; Atlanta, GA &nbsp;·&nbsp; <span>(205) 266-1648</span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="jdm-squarespace-mockup.html" class="nav-logo">
+    <span class="nav-logo-top">JDM Consultants LLC</span>
+    <span class="nav-logo-sub">Civil Engineering & Design</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="jdm-squarespace-mockup.html#services">Services</a></li>
+    <li><a href="jdm-squarespace-mockup.html#about">About</a></li>
+    <li><a href="jdm-projects.html" class="active">Projects</a></li>
+    <li><a href="jdm-squarespace-mockup.html#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner reveal">
+    <div class="page-eyebrow">Portfolio</div>
+    <h1>$750M in Development.<br><em>Built on Precision.</em></h1>
+    <p>From residential subdivisions to large-scale commercial developments and public infrastructure, JDM has engineered projects of every scale across Georgia and the Southeast.</p>
+  </div>
+</section>
+
+<!-- STATS ROW -->
+<div class="stats-row reveal">
+  <div class="stat-item">
+    <span class="stat-num">$750M+</span>
+    <span class="stat-label">Development Led</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">4</span>
+    <span class="stat-label">Sectors Served</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">GA</span>
+    <span class="stat-label">Primary Market</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num" style="font-size:15px; padding-top:6px; line-height:1.4;">GA · AL · SC<br>FL · TN · TX</span>
+    <span class="stat-label">Licensed States</span>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-section">
+  <div class="filter-label">Filter by sector</div>
+  <div class="filter-tabs">
+    <button class="filter-tab active" data-filter="all">All Projects</button>
+    <button class="filter-tab" data-filter="residential">Residential</button>
+    <button class="filter-tab" data-filter="commercial">Commercial & Retail</button>
+    <button class="filter-tab" data-filter="industrial">Industrial</button>
+    <button class="filter-tab" data-filter="public-works">Public Works</button>
+    <button class="filter-tab" data-filter="site-design">Site Design</button>
+  </div>
+</div>
+
+<!-- PROJECT COUNT -->
+<div class="projects-meta">
+  <div class="projects-count">Showing <span id="count">12</span> projects</div>
+  <div class="view-toggles">
+    <button class="view-btn active" data-view="3col" title="3 column">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+        <rect x="0" y="0" width="4" height="4"/><rect x="5" y="0" width="4" height="4"/><rect x="10" y="0" width="4" height="4"/>
+        <rect x="0" y="5" width="4" height="4"/><rect x="5" y="5" width="4" height="4"/><rect x="10" y="5" width="4" height="4"/>
+        <rect x="0" y="10" width="4" height="4"/><rect x="5" y="10" width="4" height="4"/><rect x="10" y="10" width="4" height="4"/>
+      </svg>
+    </button>
+    <button class="view-btn" data-view="2col" title="2 column">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+        <rect x="0" y="0" width="6" height="6"/><rect x="8" y="0" width="6" height="6"/>
+        <rect x="0" y="8" width="6" height="6"/><rect x="8" y="8" width="6" height="6"/>
+      </svg>
+    </button>
+    <button class="view-btn" data-view="list" title="List">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+        <rect x="0" y="0" width="14" height="3"/><rect x="0" y="5" width="14" height="3"/><rect x="0" y="10" width="14" height="3"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- PROJECTS GRID -->
+<div class="projects-section">
+  <div class="projects-grid" id="projectsGrid">
+
+    <!-- 1: Peachtree Crossings (large featured) -->
+    <div class="project-card large reveal" data-category="residential"
+         data-title="Peachtree Crossings Subdivision"
+         data-tag="Residential"
+         data-location="Fulton County, GA"
+         data-desc="Full civil engineering package for a 142-lot single-family residential subdivision including grading plans, stormwater management, sanitary sewer design, and roadway construction drawings. Delivered permit-ready plan sets on an aggressive 8-month timeline."
+         data-scope="142-lot subdivision"
+         data-services="Civil Site Design, Construction Plans"
+         data-status="Completed"
+         data-img="https://images.unsplash.com/photo-1448630360428-65456885c650?w=1200&q=85">
+      <div class="project-tag-always">Residential</div>
+      <img class="project-img" src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=1200&q=85" alt="Peachtree Crossings"/>
+      <div class="project-overlay">
+        <div class="project-tag">Residential</div>
+        <div class="project-name">Peachtree Crossings Subdivision</div>
+        <div class="project-location">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 1C3.34 1 2 2.34 2 4c0 2.5 3 6 3 6s3-3.5 3-6c0-1.66-1.34-3-3-3z"/><circle cx="5" cy="4" r="1"/></svg>
+          Fulton County, GA
+        </div>
+        <div class="project-expand">View Project <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="project-card reveal" data-category="commercial"
+         data-title="Northside Retail Plaza"
+         data-tag="Commercial & Retail"
+         data-location="Gwinnett County, GA"
+         data-desc="Civil site design for a 65,000 SF retail center including access road design, parking layout, stormwater detention pond, and full utility coordination with county and private utility providers."
+         data-scope="65,000 SF retail center"
+         data-services="Civil Site Design, Project Management"
+         data-status="Completed"
+         data-img="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=85">
+      <div class="project-tag-always">Commercial</div>
+      <img class="project-img" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=85" alt="Northside Retail Plaza"/>
+      <div class="project-overlay">
+        <div class="project-tag">Commercial & Retail</div>
+        <div class="project-name">Northside Retail Plaza</div>
+        <div class="project-location">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 1C3.34 1 2 2.34 2 4c0 2.5 3 6 3 6s3-3.5 3-6c0-1.66-1.34-3-3-3z"/><circle cx="5" cy="4" r="1"/></svg>
+          Gwinnett County, GA
+        </div>
+        <div class="project-expand">View Project <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="project-card reveal" data-category="public-works"
+         data-title="SR-316 Corridor Improvement"
+         data-tag="Public Works"
+         data-location="Barrow County, GA"
+         data-desc="Construction plan support for a state-funded roadway improvement project including lane widening, turn lane additions, sidewalk and ADA ramp design, drainage improvements, and utility relocation coordination."
+         data-scope="2.4-mile corridor"
+         data-services="Construction Plans, Project Consulting"
+         data-status="Completed"
+         data-img="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=85">
+      <div class="project-tag-always">Public Works</div>
+      <img class="project-img" src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=85" alt="SR-316 Corridor"/>
+      <div class="project-overlay">
+        <div class="project-tag">Public Works</div>
+        <div class="project-name">SR-316 Corridor Improvement</div>
+        <div class="project-location">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 1C3.34 1 2 2.34 2 4c0 2.5 3 6 3 6s3-3.5 3-6c0-1.66-1.34-3-3-3z"/><circle cx="5" cy="4" r="1"/></svg>
+          Barrow County, GA
+        </div>
+        <div class="project-expand">View Project <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="project-card reveal" data-category="industrial"
+         data-title="Lakeside Logistics Center"
+         data-tag="Industrial"
+         data-location="Douglas County, GA"
+         data-desc="Civil engineering design for a 380,000 SF logistics and distribution facility including site grading, truck court and dock design, stormwater management, and coordination with industrial utility providers."
+         data-scope="380,000 SF distribution facility"
+         data-services="Civil Site Design, Construction Plans"
+         data-status="Completed"
+         data-img="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=85">
+      <div class="project-tag-always">Industrial</div>
+      <img class="project-img" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=85" alt="Lakeside Logistics"/>
+      <div class="project-overlay">
+        <div class="project-tag">Industrial</div>
+        <div class="project-name">Lakeside Logistics Center</div>
+        <div class="project-location">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 1C3.34 1 2 2.34 2 4c0 2.5 3 6 3 6s3-3.5 3-6c0-1.66-1.34-3-3-3z"/><circle cx="5" cy="4" r="1"/></svg>
+          Douglas County, GA
+        </div>
+        <div class="project-expand">View Project <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="project-card reveal" data-category="site-design"
+         data-title="River Bend Site Feasibility"
+         data-tag="Site Design"
+         data-location="Cherokee County, GA"
+         data-desc="Topographic survey and site feasibility analysis for a 28-acre mixed-use development parcel. Scope included grading concept, utility availability study, floodplain delineation, and preliminary stormwater analysis."
+         data-scope="28-acre parcel"
+         data-services="Site Design, Consulting"
+         data-status="Completed"
+         data-img="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=85">
+      <div class="project-tag-always">Site Design</div>
+      <img class="project-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=85" alt="River Bend"/>
+      <div class="project-overlay">
+        <div class="project-tag">Site Design</div>
+        <div class="project-name">River Bend Site Feasibility</div>
+        <div class="project-location">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 1C3.34 1 2 2.34 2 4c0 2.5 3 6 3 6s3-3.5 3-6c0-1.66-1.34-3-3-3z"/><circle cx="5" cy="4" r="1"/></svg>
+          Cherokee County, GA
+        </div>
+        <div class="project-expand">View Project <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="project-card reveal" data-category="residential"
+         data-title="Oakwood Reserve Townhomes"
+         data-tag="Residential"
+         data-location="DeKalb County, GA"
+         data-desc="Full civil package for an 88-unit townhome development including grading, drainage, private road and parking design, sanitary and water design, and permit coordination with DeKalb County."
+         data-scope="88-unit townhome community"
+         data-services="Civil Site Design, Construction Plans, Project Management"
+         data-status="Completed"
+         data-img="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=85">
+      <div class="project-tag-always">Residential</div>
+      <img class="project-img" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=85" alt="Oakwood Reserve"/>
+      <div class="project-overlay">
+        <div class="project-tag">Residential</div>
+        <div class="project-name">Oakwood Reserve Townhomes</div>
+        <div class="project-location">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 1C3.34 1 2 2.34 2 4c0 2.5 3 6 3 6s3-3.5 3-6c0-1.66-1.34-3-3-3z"/><circle cx="5" cy="4" r="1"/></svg>
+          DeKalb County, GA
+        </div>
+        <div class="project-expand">View Project <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div>
+      </div>
+    </div>
+
+    <!-- 7: Large commercial -->
+    <div class="project-card large reveal" data-category="commercial"
+         data-title="Midtown Mixed-Use Development"
+         data-tag="Commercial & Retail"
+         data-location="Atlanta, GA"
+         data-desc="Civil engineering and project management for a 5-story mixed-use development in Midtown Atlanta including retail ground floor and 120 residential units above. Scope covered site grading, underground stormwater vault, utility coordination, and permit management with City of Atlanta."
+         data-scope="5-story, 120 units + retail"
+         data-services="Civil Site Design, Construction Plans, Project Management"
+         data-status="In Progress"
+         data-img="https://images.unsplash.com/photo-1590756254933-2873d72a83b6?w=1200&q=85">
+      <div class="project-tag-always">Commercial</div>
+      <img class="project-img" src="https://images.unsplash.com/photo-1590756254933-2873d72a83b6?w=1200&q=85" alt="Midtown Mixed Use"/>
+      <div class="project-overlay">
+        <div class="project-tag">Commercial & Retail</div>
+        <div class="project-name">Midtown Mixed-Use Development</div>
+        <div class="project-location">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 1C3.34 1 2 2.34 2 4c0 2.5 3 6 3 6s3-3.5 3-6c0-1.66-1.34-3-3-3z"/><circle cx="5" cy="4" r="1"/></svg>
+          Atlanta, GA
+        </div>
+        <div class="project-expand">View Project <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="project-card reveal" data-category="public-works"
+         data-title="Sweetwater Creek Utility Relocation"
+         data-tag="Public Works"
+         data-location="Cobb County, GA"
+         data-desc="Design and permit coordination for waterline and sanitary sewer relocation in advance of a county road widening project. Included utility conflict analysis, trench design, and agency coordination."
+         data-scope="3,800 LF utility relocation"
+         data-services="Construction Plans, Project Consulting"
+         data-status="Completed"
+         data-img="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=85">
+      <div class="project-tag-always">Public Works</div>
+      <img class="project-img" src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=85" alt="Sweetwater Creek"/>
+      <div class="project-overlay">
+        <div class="project-tag">Public Works</div>
+        <div class="project-name">Sweetwater Creek Utility Relocation</div>
+        <div class="project-location">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 1C3.34 1 2 2.34 2 4c0 2.5 3 6 3 6s3-3.5 3-6c0-1.66-1.34-3-3-3z"/><circle cx="5" cy="4" r="1"/></svg>
+          Cobb County, GA
+        </div>
+        <div class="project-expand">View Project <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="project-card reveal" data-category="industrial"
+         data-title="South Atlanta Manufacturing Campus"
+         data-tag="Industrial"
+         data-location="Clayton County, GA"
+         data-desc="Site civil design for a 4-building industrial manufacturing campus on a 55-acre site. Services included master grading plan, stormwater management, fire access roads, loading dock coordination, and full permitting support."
+         data-scope="55-acre, 4-building campus"
+         data-services="Civil Site Design, Project Management"
+         data-status="Completed"
+         data-img="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&q=85">
+      <div class="project-tag-always">Industrial</div>
+      <img class="project-img" src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&q=85" alt="Manufacturing Campus"/>
+      <div class="project-overlay">
+        <div class="project-tag">Industrial</div>
+        <div class="project-name">South Atlanta Manufacturing Campus</div>
+        <div class="project-location">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 1C3.34 1 2 2.34 2 4c0 2.5 3 6 3 6s3-3.5 3-6c0-1.66-1.34-3-3-3z"/><circle cx="5" cy="4" r="1"/></svg>
+          Clayton County, GA
+        </div>
+        <div class="project-expand">View Project <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="project-card reveal" data-category="site-design"
+         data-title="Alpharetta Tech Park — Due Diligence"
+         data-tag="Site Design"
+         data-location="Alpharetta, GA"
+         data-desc="Pre-acquisition due diligence and site feasibility study for a 12-acre technology office park. Delivered grading concept, traffic access analysis, stormwater preliminary sizing, and development constraint summary for an investor client."
+         data-scope="12-acre office park site"
+         data-services="Site Design, Consulting"
+         data-status="Completed"
+         data-img="https://images.unsplash.com/photo-1497366858526-0766cadbe8fa?w=800&q=85">
+      <div class="project-tag-always">Site Design</div>
+      <img class="project-img" src="https://images.unsplash.com/photo-1497366858526-0766cadbe8fa?w=800&q=85" alt="Tech Park"/>
+      <div class="project-overlay">
+        <div class="project-tag">Site Design</div>
+        <div class="project-name">Alpharetta Tech Park — Due Diligence</div>
+        <div class="project-location">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 1C3.34 1 2 2.34 2 4c0 2.5 3 6 3 6s3-3.5 3-6c0-1.66-1.34-3-3-3z"/><circle cx="5" cy="4" r="1"/></svg>
+          Alpharetta, GA
+        </div>
+        <div class="project-expand">View Project <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="project-card reveal" data-category="residential"
+         data-title="Heritage Pines Master Plan"
+         data-tag="Residential"
+         data-location="Henry County, GA"
+         data-desc="Master planned residential community civil engineering for a 310-lot single-family development on 180 acres. Phased plan delivery covering roads, utilities, recreation amenity grading, and stormwater across three construction phases."
+         data-scope="310-lot, 180-acre community"
+         data-services="Civil Site Design, Construction Plans, Project Management"
+         data-status="In Progress"
+         data-img="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85">
+      <div class="project-tag-always">Residential</div>
+      <img class="project-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85" alt="Heritage Pines"/>
+      <div class="project-overlay">
+        <div class="project-tag">Residential</div>
+        <div class="project-name">Heritage Pines Master Plan</div>
+        <div class="project-location">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 1C3.34 1 2 2.34 2 4c0 2.5 3 6 3 6s3-3.5 3-6c0-1.66-1.34-3-3-3z"/><circle cx="5" cy="4" r="1"/></svg>
+          Henry County, GA
+        </div>
+        <div class="project-expand">View Project <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div>
+      </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="project-card reveal" data-category="commercial"
+         data-title="Conyers Town Center Pad Sites"
+         data-tag="Commercial & Retail"
+         data-location="Rockdale County, GA"
+         data-desc="Civil design for four commercial pad sites within an existing shopping center, including individual grading plans, shared detention pond modification, access drive redesign, and utility stub-outs for pad tenants."
+         data-scope="4 commercial pad sites"
+         data-services="Civil Site Design, Construction Plans"
+         data-status="Completed"
+         data-img="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=85">
+      <div class="project-tag-always">Commercial</div>
+      <img class="project-img" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=85" alt="Town Center"/>
+      <div class="project-overlay">
+        <div class="project-tag">Commercial & Retail</div>
+        <div class="project-name">Conyers Town Center Pad Sites</div>
+        <div class="project-location">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 1C3.34 1 2 2.34 2 4c0 2.5 3 6 3 6s3-3.5 3-6c0-1.66-1.34-3-3-3z"/><circle cx="5" cy="4" r="1"/></svg>
+          Rockdale County, GA
+        </div>
+        <div class="project-expand">View Project <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div>
+      </div>
+    </div>
+
+    <div class="no-results" id="noResults">
+      <p>No projects found in this category.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="2" y1="2" x2="14" y2="14"/><line x1="14" y1="2" x2="2" y2="14"/>
+    </svg>
+  </button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M10 3L5 8l5 5"/>
+    </svg>
+  </button>
+  <div class="lightbox-inner">
+    <div class="lightbox-img-wrap">
+      <img class="lightbox-img" id="lightboxImg" src="" alt=""/>
+    </div>
+    <div class="lightbox-info">
+      <div>
+        <div class="lightbox-tag" id="lightboxTag"></div>
+        <h2 class="lightbox-title" id="lightboxTitle"></h2>
+        <div class="lightbox-location" id="lightboxLocation">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 1C4.34 1 3 2.34 3 4c0 2.5 3 7 3 7s3-4.5 3-7c0-1.66-1.34-3-3-3z"/><circle cx="6" cy="4" r="1.2"/></svg>
+          <span></span>
+        </div>
+        <div class="lightbox-divider"></div>
+        <p class="lightbox-desc" id="lightboxDesc"></p>
+        <div class="lightbox-details" id="lightboxDetails"></div>
+      </div>
+      <a href="jdm-squarespace-mockup.html#contact" class="btn-primary" style="justify-content: center;">
+        Start a Similar Project
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5"/></svg>
+      </a>
+    </div>
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 3l5 5-5 5"/>
+    </svg>
+  </button>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-content reveal">
+    <div class="cta-eyebrow">Have a Project?</div>
+    <h2>Let's Break Ground</h2>
+    <p>Tell us what you're building — we'll tell you how we can help.</p>
+  </div>
+  <a href="jdm-squarespace-mockup.html#contact" class="btn-primary reveal">
+    Get a Free Quote
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5"/></svg>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">JDM Consultants LLC</div>
+      <div class="footer-brand-sub">Civil Engineering & Design</div>
+      <p class="footer-desc">A 100% Minority-Owned civil engineering, design, and consulting firm serving builders, investors, and developers across Georgia and the Southeast.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="jdm-squarespace-mockup.html">Home</a></li>
+        <li><a href="jdm-squarespace-mockup.html#services">Services</a></li>
+        <li><a href="jdm-squarespace-mockup.html#about">About</a></li>
+        <li><a href="jdm-projects.html">Projects</a></li>
+        <li><a href="jdm-squarespace-mockup.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#">Civil Site Design</a></li>
+        <li><a href="#">Construction Plans</a></li>
+        <li><a href="#">Project Management</a></li>
+        <li><a href="#">Residential</a></li>
+        <li><a href="#">Commercial</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-val">(205) 266-1648</div>
+      <div class="footer-contact-val">info@jdmconsultantsllc.com</div>
+      <div class="footer-contact-val">Atlanta, GA</div>
+      <div class="footer-contact-val">www.jdmconsultantsllc.com</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 JDM Consultants LLC. All rights reserved.</div>
+    <div class="minority-badge">100% Minority-Owned · Atlanta, GA</div>
+  </div>
+</footer>
+
+<script>
+// ── PROJECTS NAV LINK — always resets to All and scrolls top ───────────────
+const projectsNavLink = document.querySelector('.nav-links a.active');
+if (projectsNavLink) {
+  projectsNavLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    // Reset filter to All
+    filterTabs.forEach(t => t.classList.remove('active'));
+    const allTab = document.querySelector('.filter-section .filter-tab[data-filter="all"]');
+    if (allTab) allTab.classList.add('active');
+    cards.forEach(card => card.classList.remove('hidden'));
+    countEl.textContent = cards.length;
+    noResults.classList.remove('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// ── SCROLL REVEAL ──────────────────────────────────────────────────────────
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.06 });
+reveals.forEach(el => revealObserver.observe(el));
+
+// ── FILTER ─────────────────────────────────────────────────────────────────
+const filterTabs = document.querySelectorAll('.filter-section .filter-tab');
+const cards = document.querySelectorAll('.project-card');
+const countEl = document.getElementById('count');
+const noResults = document.getElementById('noResults');
+
+filterTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    filterTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const filter = tab.dataset.filter;
+    let visible = 0;
+    cards.forEach(card => {
+      const cat = card.dataset.category;
+      const show = filter === 'all' || cat === filter;
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+    countEl.textContent = visible;
+    noResults.classList.toggle('show', visible === 0);
+  });
+});
+
+// ── VIEW TOGGLE ────────────────────────────────────────────────────────────
+const viewBtns = document.querySelectorAll('.view-btn');
+const grid = document.getElementById('projectsGrid');
+
+viewBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    viewBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    grid.classList.remove('view-2col', 'view-list');
+    if (btn.dataset.view !== '3col') {
+      grid.classList.add('view-' + btn.dataset.view);
+    }
+  });
+});
+
+// ── LIGHTBOX ───────────────────────────────────────────────────────────────
+const lightbox    = document.getElementById('lightbox');
+const lbImg       = document.getElementById('lightboxImg');
+const lbTag       = document.getElementById('lightboxTag');
+const lbTitle     = document.getElementById('lightboxTitle');
+const lbLocation  = document.getElementById('lightboxLocation').querySelector('span');
+const lbDesc      = document.getElementById('lightboxDesc');
+const lbDetails   = document.getElementById('lightboxDetails');
+const lbClose     = document.getElementById('lightboxClose');
+const lbPrev      = document.getElementById('lightboxPrev');
+const lbNext      = document.getElementById('lightboxNext');
+
+let activeCards = [];
+let currentIndex = 0;
+
+function getActiveCards() {
+  return Array.from(cards).filter(c => !c.classList.contains('hidden'));
+}
+
+function openLightbox(card, index) {
+  lbImg.src       = card.dataset.img;
+  lbImg.alt       = card.dataset.title;
+  lbTag.textContent    = card.dataset.tag;
+  lbTitle.textContent  = card.dataset.title;
+  lbLocation.textContent = card.dataset.location;
+  lbDesc.textContent   = card.dataset.desc;
+
+  lbDetails.innerHTML = `
+    <div class="lightbox-detail-row">
+      <span class="lightbox-detail-label">Scope</span>
+      <span class="lightbox-detail-value">${card.dataset.scope}</span>
+    </div>
+    <div class="lightbox-detail-row">
+      <span class="lightbox-detail-label">Services</span>
+      <span class="lightbox-detail-value">${card.dataset.services}</span>
+    </div>
+    <div class="lightbox-detail-row">
+      <span class="lightbox-detail-label">Status</span>
+      <span class="lightbox-detail-value" style="color:${card.dataset.status === 'In Progress' ? '#C4540A' : '#22C55E'}; font-weight:500;">${card.dataset.status}</span>
+    </div>
+  `;
+
+  currentIndex = index;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function navigate(dir) {
+  activeCards = getActiveCards();
+  currentIndex = (currentIndex + dir + activeCards.length) % activeCards.length;
+  openLightbox(activeCards[currentIndex], currentIndex);
+}
+
+cards.forEach((card, i) => {
+  card.addEventListener('click', () => {
+    activeCards = getActiveCards();
+    const idx = activeCards.indexOf(card);
+    openLightbox(card, idx);
+  });
+});
+
+lbClose.addEventListener('click', closeLightbox);
+lbPrev.addEventListener('click', () => navigate(-1));
+lbNext.addEventListener('click', () => navigate(1));
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') navigate(-1);
+  if (e.key === 'ArrowRight') navigate(1);
+});
+</script>
+</body>
+</html>
