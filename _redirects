@@ -1,0 +1,5 @@
+# Legacy paths -> new clean URLs
+/jdm-squarespace-mockup       /            301
+/jdm-squarespace-mockup.html  /            301
+/jdm-projects                 /projects    301
+/jdm-projects.html            /projects    301
