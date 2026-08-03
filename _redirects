@@ -1,3 +1,7 @@
+# Clean paths -> files
+/thanks       /thanks.html    200
+/projects     /projects.html  200
+
 # Legacy paths -> new clean URLs
 /jdm-squarespace-mockup       /            301
 /jdm-squarespace-mockup.html  /            301
